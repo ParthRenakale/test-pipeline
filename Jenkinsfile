@@ -13,6 +13,8 @@ pipeline {
               sh '''
                 ls -la
                 pwd
+                npm start
+                
 
               '''
           }
