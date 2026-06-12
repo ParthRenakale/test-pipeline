@@ -2,11 +2,20 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
-            steps {
-                sh 'echo "Parth"'
-                sh 'whoami'
+        stage('Build') {
+          agent{
+            docker{
+              image node:18-alpine
+              resueNode true
             }
+          }
+          steps {
+              sh '''
+                ls -la
+                
+
+              '''
+          }
         }
     }
 }
