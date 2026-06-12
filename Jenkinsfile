@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
           agent{
             docker{
-              image 'node:18-alpine'
+              image 'node:20-alpine'
               reuseNode true
             }
           }
@@ -13,7 +13,16 @@ pipeline {
               sh '''
                 node -v
                 npm -v
-               
+                echo "===== COMMIT ====="
+                git rev-parse HEAD
+
+                echo "===== package.json ====="
+                cat package.json
+
+                echo "===== package-lock.json header ====="
+                head -30 package-lock.json
+                npm ci
+                npm start
                 
 
               '''
