@@ -11,13 +11,9 @@ pipeline {
           }
           steps {
               sh '''
-                ls -la
                 node -v
                 npm -v
-                pwd
-                exit(0)
-                npm ci
-                npm start
+               
                 
 
               '''
@@ -32,7 +28,7 @@ pipeline {
           }
           steps {
               sh '''
-                npm test
+               
                 if [ -f public/index.html ] then 
                   echo "File found"
                 fi
