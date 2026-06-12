@@ -12,7 +12,7 @@ pipeline {
           steps {
               sh '''
                 ls -la
-
+                pwd
 
               '''
           }
